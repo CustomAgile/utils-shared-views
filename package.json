@@ -1,0 +1,28 @@
+{
+  "name": "@agile-central-technical-services/utils-shared-views",
+  "version": "0.0.1",
+  "description": "Bugfixes for Rally.ui.gridboard.SharedViewComboBox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RallyTechServices/utils-shared-views.git"
+  },
+  "keywords": [
+    "rally",
+    "agile",
+    "central",
+    "technical",
+    "services",
+    "shared",
+    "view"
+  ],
+  "author": "Tyr Johanson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RallyTechServices/utils-shared-views/issues"
+  },
+  "homepage": "https://github.com/RallyTechServices/utils-shared-views#readme"
+}
