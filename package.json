@@ -1,6 +1,6 @@
 {
   "name": "@agile-central-technical-services/utils-shared-views",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bugfixes for Rally.ui.gridboard.SharedViewComboBox",
   "main": "index.js",
   "scripts": {
