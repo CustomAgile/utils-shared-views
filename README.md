@@ -3,6 +3,7 @@
 This module provides overrides for Rally.ui.gridboard.SharedViewComboBox for bug fixes including:
 * fixes a bug in the SharedViewComboBox which prevents a newly created
 view from appearing in the view picker until after an app reload
+* allows the `enableUrlSharing` option to work
 
 ## Installation
 1. Install using npm (or yarn) `npm install @agile-central-technical-services/utils-shared-views`
