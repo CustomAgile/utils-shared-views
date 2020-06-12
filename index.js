@@ -3,7 +3,7 @@ Ext.override(Rally.ui.gridboard.SharedViewComboBox, {
      * This override fixes a bug in the SharedViewComboBox which prevents a newly created
      * view from appearing in the view picker until after an app reload
      */
-    _isViewPreference: function(record) {
+    _isViewPreference: function (record) {
         return record.self.typePath === 'preference' &&
             record.get('Type') === 'View' &&
             // This is fix. Must use '==' not '===' for this to return true
@@ -14,7 +14,7 @@ Ext.override(Rally.ui.gridboard.SharedViewComboBox, {
      * This override allows the `enableUrlSharing` option to work.
      * Must override `window.location` with `parent.location`.
      */
-    getSharedViewParam: function() {
+    getSharedViewParam: function () {
         var hash = parent.location.hash,
             matches = hash.match(/sharedViewId=(\d+)/);
 
@@ -32,19 +32,19 @@ Ext.override(Rally.ui.gridboard.SharedViewComboBox, {
      * that handler can act on the store.model.load() promise when it resolves. This allows both loads to proceed in parallel without
      * possibly missing the load event.
      */
-    _ensureLatestView: function(state) {
+    _ensureLatestView: function (state) {
         if (state.objectId && state.versionId) {
             var modelLoadDeferred = Ext.create('Deft.Deferred');
             this.store.model.load(state.objectId, {
-                fetch: ['VersionId', 'Value'],
-                success: function(record) {
+                fetch: true,
+                success: function (record) {
                     modelLoadDeferred.resolve(record);
                 }
             });
-            this.store.on('load', function() {
+            this.store.on('load', function () {
                 modelLoadDeferred.promise.then({
-                    success: function(record) {
-                        if (record && record.get('VersionId') !== state.versionId) {
+                    success: function (record) {
+                        if (record && record.get('VersionId') !== state.versionId && record.raw.AppId == Rally.getApp().getAppId()) {
                             this._applyView(this._decodeValue(record));
                         }
                     },
@@ -53,4 +53,19 @@ Ext.override(Rally.ui.gridboard.SharedViewComboBox, {
             }, this, { single: true });
         }
     },
-})
+
+    /**
+     *  Need to first make sure that the view grabbed from the URL is intended for this app
+    * */
+    _insertViewIntoStore: function () {
+        this.store.model.load(this.sharedViewId, {
+            fetch: true,
+            success: function (record) {
+                if (record && record.raw.AppId == Rally.getApp().getAppId()) {
+                    this.callParent(arguments);
+                }
+            }
+        });
+
+    }
+});
