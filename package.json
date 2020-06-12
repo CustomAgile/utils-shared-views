@@ -1,6 +1,6 @@
 {
-  "name": "@agile-central-technical-services/utils-shared-views",
-  "version": "1.0.3",
+  "name": "@customagile/utils-shared-views",
+  "version": "1.0.4",
   "description": "Bugfixes for Rally.ui.gridboard.SharedViewComboBox",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RallyTechServices/utils-shared-views.git"
+    "url": "git+https://github.com/CustomAgile/utils-shared-views.git"
   },
   "keywords": [
     "rally",
@@ -19,10 +19,9 @@
     "shared",
     "view"
   ],
-  "author": "Tyr Johanson",
-  "license": "ISC",
+  "author": "Custom Agile",
   "bugs": {
-    "url": "https://github.com/RallyTechServices/utils-shared-views/issues"
+    "url": "https://github.com/CustomAgile/utils-shared-views/issues"
   },
-  "homepage": "https://github.com/RallyTechServices/utils-shared-views#readme"
+  "homepage": "https://github.com/CustomAgile/utils-shared-views#readme"
 }
